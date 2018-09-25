@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2018 at 12:55 AM
+-- Generation Time: Sep 26, 2018 at 01:41 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -10120,6 +10120,7 @@ INSERT INTO `provinces` (`PROVINCE_ID`, `PROVINCE_CODE`, `PROVINCE_NAME`, `PROVI
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
+  `user_personal_id` varchar(13) NOT NULL,
   `user_username` varchar(200) NOT NULL,
   `user_password` varchar(200) NOT NULL,
   `user_fname` varchar(200) NOT NULL,
@@ -10128,7 +10129,7 @@ CREATE TABLE `user` (
   `user_subdistrict` int(11) NOT NULL,
   `user_district` int(11) NOT NULL,
   `user_province` int(11) NOT NULL,
-  `user_zipcode` varchar(5) NOT NULL,
+  `user_zipcode` int(11) NOT NULL,
   `user_tel` varchar(20) NOT NULL,
   `user_email` varchar(200) NOT NULL,
   `user_area` int(11) NOT NULL
@@ -10138,8 +10139,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_username`, `user_password`, `user_fname`, `user_lname`, `user_address`, `user_subdistrict`, `user_district`, `user_province`, `user_zipcode`, `user_tel`, `user_email`, `user_area`) VALUES
-(1, 'test', '098f6bcd4621d373cade4e832627b4f6', 'wichetpong', 'khetsupa', '', 0, 0, 0, '', '', 'wichetpong159@hotmail.com', 0);
+INSERT INTO `user` (`user_id`, `user_personal_id`, `user_username`, `user_password`, `user_fname`, `user_lname`, `user_address`, `user_subdistrict`, `user_district`, `user_province`, `user_zipcode`, `user_tel`, `user_email`, `user_area`) VALUES
+(1, '1479900104204', 'test', '098f6bcd4621d373cade4e832627b4f6', 'wichetpong', 'khetsupa', '351/7', 4794, 529, 35, 3896, '0854656664', 'wichetpong159@hotmail.com', 4794);
 
 -- --------------------------------------------------------
 
@@ -17739,7 +17740,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `zipcodes`
 --

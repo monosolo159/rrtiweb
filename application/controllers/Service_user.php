@@ -6,8 +6,8 @@ class Service_user extends REST_Controller
 {
   function __construct(){
     header('Access-Control-Allow-Origin: *');
-    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Allow-Headers,Authorization");
+    header("Access-Control-Allow-Methods: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS");
     $method = $_SERVER['REQUEST_METHOD'];
     if($method == "OPTIONS") {
       die();
@@ -43,15 +43,15 @@ class Service_user extends REST_Controller
   }
 
 
-  // function updateUser_post()
-  // {
-  //   $input = $this->post();
-  //   if(!empty($input['member_password'])){
-  //     $input['member_password'] = md5($input['member_password']);
-  //   }
-  //   $member = $this->Usermodel->updateUser($input);
-  //   $this->response($member, 200); // 200 being the HTTP response code
-  // }
+  function updateUser_post()
+  {
+    $input = $this->post();
+    // if(!empty($input['user_password'])){
+    //   $input['member_password'] = md5($input['member_password']);
+    // }
+    $user = $this->Usermodel->updateUser($input);
+    $this->response($user, 200); // 200 being the HTTP response code
+  }
 
 
 

@@ -16,23 +16,27 @@ class Usermodel extends CI_Model {
 
 	public function selectUser($input)
 	{
-		$this->db->select('user_id,user_fname,user_lname,user_address, districts.DISTRICT_NAME as new_subdistrict, amphures.AMPHUR_NAME as new_district, provinces.PROVINCE_NAME as new_province,zipcodes.zipcode as new_zipcode,user_tel,user_email,(select DISTRICT_NAME from districts where DISTRICT_ID = user_area) as new_area');
+		$this->db->select('user_id,user_personal_id,user_fname,user_lname,user_address, districts.DISTRICT_NAME as new_subdistrict, amphures.AMPHUR_NAME as new_district, provinces.PROVINCE_NAME as new_province,zipcodes.zipcode as new_zipcode,user_tel,user_email,(select DISTRICT_NAME from districts where DISTRICT_ID = user_area) as new_area');
 		$this->db->where('user_id', $input['user_id']);
 		$this->db->from('user');
 		$this->db->join('districts','user.user_subdistrict = districts.DISTRICT_ID','left');
 		$this->db->join('amphures','user.user_district = amphures.AMPHUR_ID','left');
 		$this->db->join('provinces','user.user_province = provinces.PROVINCE_ID','left');
 		$this->db->join('zipcodes','user.user_zipcode = zipcodes.id','left');
-		// $this->db->join('member_type','member.member_type_id = member_type.member_type_id');
 		$query = $this->db->get()->result_array();
-
-
-		// $this->db->select('*');
-		// $this->db->where('user_id', $input['user_id']);
-		// $this->db->from('user');
-		// $query = $this->db->get()->result_array();
-
 		return $query;
+	}
+
+	public function updateUser($input)
+	{
+		// $id = $input['user_id'];
+		// $id_personal = $input['user_personal_id'];
+		// unset($input['user_id']);
+		// unset($input['user_personal_id']);
+		// $this->db->where('user_id', $id);
+		$this->db->where('user_personal_id', $input['user_personal_id']);
+		$this->db->update('user',$input);
+		return $this->db->affected_rows();
 	}
 
 
@@ -61,14 +65,7 @@ class Usermodel extends CI_Model {
 		$this->db->insert('member', $input);
 	}
 
-	public function updateUser($input)
-	{
-		$id = $input['member_id'];
-		unset($input['member_id']);
-		$this->db->where('member_id', $id);
-		$this->db->update('member',$input);
-		return $this->db->affected_rows();
-	}
+
 
 	public function getMember($input){
 		$data = $this->db
