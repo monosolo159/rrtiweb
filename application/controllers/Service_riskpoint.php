@@ -2,12 +2,12 @@
 require APPPATH.'/libraries/REST_Controller.php';
 
 
-class Service_liskpoint extends REST_Controller
+class Service_riskpoint extends REST_Controller
 {
   function __construct(){
     header('Access-Control-Allow-Origin: *');
-    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Allow-Headers,Authorization");
-    header("Access-Control-Allow-Methods: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS");
+    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
     $method = $_SERVER['REQUEST_METHOD'];
     if($method == "OPTIONS") {
       die();
@@ -31,15 +31,16 @@ class Service_liskpoint extends REST_Controller
 
   function selectRiskpoint_post()
   {
-    // $input = $this->post();
-    // $user = $this->Usermodel->selectUser($input);
-    // if (!file_exists(base_url('assets/img/profiles/'.$user[0]['user_id'].'.jpg'))) {
-    //   $user[0]['user_pic'] = base_url('assets/img/profiles/'.$user[0]['user_id'].'.jpg');
-    // }else{
-    //   $user[0]['user_pic'] = base_url('assets/img/profiles/user.png');
-    // }
-    //
-    // $this->response($user, 200); // 200 being the HTTP response code
+    $input = $this->post();
+    $riskpoint = $this->Riskpointmodel->selectRiskpoint($input);
+    $this->response($riskpoint, 200); // 200 being the HTTP response code
+  }
+
+  function selectRiskpointPic_post()
+  {
+    $input = $this->post();
+    $riskpointpic = $this->Riskpointmodel->selectRiskpointPic($input);
+    $this->response($riskpointpic, 200); // 200 being the HTTP response code
   }
 
 

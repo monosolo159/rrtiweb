@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2018 at 09:25 AM
+-- Generation Time: Sep 27, 2018 at 12:38 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -10123,7 +10123,7 @@ CREATE TABLE `riskpoint` (
   `riskpoint_name` varchar(100) NOT NULL,
   `riskpoint_detail` varchar(500) NOT NULL,
   `riskpoint_location` varchar(100) NOT NULL,
-  `riskpoint_status_id` int(11) NOT NULL,
+  `riskpoint_status_id` int(11) NOT NULL DEFAULT '1',
   `riskpoint_piority_id` int(11) NOT NULL,
   `user_from_id` int(11) NOT NULL,
   `user_to_id` int(11) NOT NULL,
@@ -10136,7 +10136,7 @@ CREATE TABLE `riskpoint` (
 --
 
 INSERT INTO `riskpoint` (`riskpoint_id`, `riskpoint_name`, `riskpoint_detail`, `riskpoint_location`, `riskpoint_status_id`, `riskpoint_piority_id`, `user_from_id`, `user_to_id`, `riskpoint_date`, `riskpoint_last_update`) VALUES
-(1, 'ข้างถนน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น', '17.396029,104.3812883', 1, 1, 1, 2, '2018-09-02 06:16:20', '2018-09-09 06:13:13'),
+(1, 'ข้างถนน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', '17.396029,104.3812883', 1, 1, 1, 2, '2018-09-02 06:16:20', '2018-09-09 06:13:13'),
 (2, 'คอสะพาน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น', '17.396029,104.3812883', 1, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'กลางถนน', 'หลุมบ่อจำนวนมาก เกิดอุบัติเหตุบ่อยครั้ง', '17.396029,104.3812883', 2, 4, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'ทดสอบ 1', 'ทดสอบ 1', '17.396029,104.3812883', 3, 3, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -10152,9 +10152,16 @@ CREATE TABLE `riskpoint_pic` (
   `riskpoint_pic_id` int(11) NOT NULL,
   `riskpoint_pic_name` varchar(200) NOT NULL,
   `riskpoint_pic_date` datetime NOT NULL,
-  `riskpoint_id` int(11) NOT NULL,
-  `riskpoint_pic_order` int(11) NOT NULL
+  `riskpoint_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `riskpoint_pic`
+--
+
+INSERT INTO `riskpoint_pic` (`riskpoint_pic_id`, `riskpoint_pic_name`, `riskpoint_pic_date`, `riskpoint_id`) VALUES
+(1, '001.jpg', '2018-09-11 09:31:24', 1),
+(2, '002.jpg', '2018-09-05 08:24:24', 1);
 
 -- --------------------------------------------------------
 
@@ -17885,7 +17892,7 @@ ALTER TABLE `riskpoint`
 -- AUTO_INCREMENT for table `riskpoint_pic`
 --
 ALTER TABLE `riskpoint_pic`
-  MODIFY `riskpoint_pic_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `riskpoint_pic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
