@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2018 at 01:41 AM
+-- Generation Time: Sep 26, 2018 at 09:25 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -10115,6 +10115,91 @@ INSERT INTO `provinces` (`PROVINCE_ID`, `PROVINCE_CODE`, `PROVINCE_NAME`, `PROVI
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `riskpoint`
+--
+
+CREATE TABLE `riskpoint` (
+  `riskpoint_id` int(11) NOT NULL,
+  `riskpoint_name` varchar(100) NOT NULL,
+  `riskpoint_detail` varchar(500) NOT NULL,
+  `riskpoint_location` varchar(100) NOT NULL,
+  `riskpoint_status_id` int(11) NOT NULL,
+  `riskpoint_piority_id` int(11) NOT NULL,
+  `user_from_id` int(11) NOT NULL,
+  `user_to_id` int(11) NOT NULL,
+  `riskpoint_date` datetime NOT NULL,
+  `riskpoint_last_update` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `riskpoint`
+--
+
+INSERT INTO `riskpoint` (`riskpoint_id`, `riskpoint_name`, `riskpoint_detail`, `riskpoint_location`, `riskpoint_status_id`, `riskpoint_piority_id`, `user_from_id`, `user_to_id`, `riskpoint_date`, `riskpoint_last_update`) VALUES
+(1, 'ข้างถนน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น', '17.396029,104.3812883', 1, 1, 1, 2, '2018-09-02 06:16:20', '2018-09-09 06:13:13'),
+(2, 'คอสะพาน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น', '17.396029,104.3812883', 1, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'กลางถนน', 'หลุมบ่อจำนวนมาก เกิดอุบัติเหตุบ่อยครั้ง', '17.396029,104.3812883', 2, 4, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'ทดสอบ 1', 'ทดสอบ 1', '17.396029,104.3812883', 3, 3, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'ทดสอบ 2', 'ทดสอบ 2', '17.396029,104.3812883', 2, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `riskpoint_pic`
+--
+
+CREATE TABLE `riskpoint_pic` (
+  `riskpoint_pic_id` int(11) NOT NULL,
+  `riskpoint_pic_name` varchar(200) NOT NULL,
+  `riskpoint_pic_date` datetime NOT NULL,
+  `riskpoint_id` int(11) NOT NULL,
+  `riskpoint_pic_order` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `riskpoint_piority`
+--
+
+CREATE TABLE `riskpoint_piority` (
+  `riskpoint_piority_id` int(11) NOT NULL,
+  `riskpoint_piority_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `riskpoint_piority`
+--
+
+INSERT INTO `riskpoint_piority` (`riskpoint_piority_id`, `riskpoint_piority_name`) VALUES
+(1, 'น้อย'),
+(2, 'ปานกลาง'),
+(3, 'มาก'),
+(4, 'เร่งด่วน');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `riskpoint_status`
+--
+
+CREATE TABLE `riskpoint_status` (
+  `riskpoint_status_id` int(11) NOT NULL,
+  `riskpoint_status_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `riskpoint_status`
+--
+
+INSERT INTO `riskpoint_status` (`riskpoint_status_id`, `riskpoint_status_name`) VALUES
+(1, 'รอการตรวจสอบ'),
+(2, 'ดำเนินการแก้ไข'),
+(3, 'แก้ไขแล้ว');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -10132,15 +10217,40 @@ CREATE TABLE `user` (
   `user_zipcode` int(11) NOT NULL,
   `user_tel` varchar(20) NOT NULL,
   `user_email` varchar(200) NOT NULL,
-  `user_area` int(11) NOT NULL
+  `user_area` int(11) NOT NULL,
+  `user_type_id` int(11) NOT NULL,
+  `user_register` datetime NOT NULL,
+  `user_last_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_personal_id`, `user_username`, `user_password`, `user_fname`, `user_lname`, `user_address`, `user_subdistrict`, `user_district`, `user_province`, `user_zipcode`, `user_tel`, `user_email`, `user_area`) VALUES
-(1, '1479900104204', 'test', '098f6bcd4621d373cade4e832627b4f6', 'wichetpong', 'khetsupa', '351/7', 4794, 529, 35, 3896, '0854656664', 'wichetpong159@hotmail.com', 4794);
+INSERT INTO `user` (`user_id`, `user_personal_id`, `user_username`, `user_password`, `user_fname`, `user_lname`, `user_address`, `user_subdistrict`, `user_district`, `user_province`, `user_zipcode`, `user_tel`, `user_email`, `user_area`, `user_type_id`, `user_register`, `user_last_update`) VALUES
+(1, '1479900104204', 'test', '098f6bcd4621d373cade4e832627b4f6', 'wichetpong', 'khetsupa', '351/7', 4794, 529, 35, 3896, '0854656664', 'wichetpong159@hotmail.com', 4794, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_type`
+--
+
+CREATE TABLE `user_type` (
+  `user_type_id` int(11) NOT NULL,
+  `user_type_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_type`
+--
+
+INSERT INTO `user_type` (`user_type_id`, `user_type_name`) VALUES
+(1, 'ผู้ดูแล'),
+(2, 'โรงพยาบาล'),
+(3, 'VR'),
+(4, 'ผู้เกี่ยวข้อง'),
+(5, 'ผู้รับผิดชอบพื้นที่');
 
 -- --------------------------------------------------------
 
@@ -17701,10 +17811,40 @@ ALTER TABLE `provinces`
   ADD PRIMARY KEY (`PROVINCE_ID`);
 
 --
+-- Indexes for table `riskpoint`
+--
+ALTER TABLE `riskpoint`
+  ADD PRIMARY KEY (`riskpoint_id`);
+
+--
+-- Indexes for table `riskpoint_pic`
+--
+ALTER TABLE `riskpoint_pic`
+  ADD PRIMARY KEY (`riskpoint_pic_id`);
+
+--
+-- Indexes for table `riskpoint_piority`
+--
+ALTER TABLE `riskpoint_piority`
+  ADD PRIMARY KEY (`riskpoint_piority_id`);
+
+--
+-- Indexes for table `riskpoint_status`
+--
+ALTER TABLE `riskpoint_status`
+  ADD PRIMARY KEY (`riskpoint_status_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `user_type`
+--
+ALTER TABLE `user_type`
+  ADD PRIMARY KEY (`user_type_id`);
 
 --
 -- Indexes for table `zipcodes`
@@ -17736,6 +17876,16 @@ ALTER TABLE `geography`
 --
 ALTER TABLE `provinces`
   MODIFY `PROVINCE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+--
+-- AUTO_INCREMENT for table `riskpoint`
+--
+ALTER TABLE `riskpoint`
+  MODIFY `riskpoint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `riskpoint_pic`
+--
+ALTER TABLE `riskpoint_pic`
+  MODIFY `riskpoint_pic_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
