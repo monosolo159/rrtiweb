@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2018 at 12:38 AM
+-- Generation Time: Oct 01, 2018 at 05:57 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -10140,7 +10140,12 @@ INSERT INTO `riskpoint` (`riskpoint_id`, `riskpoint_name`, `riskpoint_detail`, `
 (2, 'คอสะพาน', 'มีหญ้าปกคลุมเป็นจำนวนมาก บดบังการมองเห็น', '17.396029,104.3812883', 1, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'กลางถนน', 'หลุมบ่อจำนวนมาก เกิดอุบัติเหตุบ่อยครั้ง', '17.396029,104.3812883', 2, 4, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'ทดสอบ 1', 'ทดสอบ 1', '17.396029,104.3812883', 3, 3, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'ทดสอบ 2', 'ทดสอบ 2', '17.396029,104.3812883', 2, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(5, 'ทดสอบ 2', 'ทดสอบ 2', '17.396029,104.3812883', 2, 2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'Rry', 'Hhhhhgggg', '', 1, 4, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, '333', 'Ffff', '', 1, 3, 1, 0, '2018-09-28 10:19:28', '2018-09-28 10:19:28'),
+(8, '888', 'Yfgb', '', 1, 2, 1, 0, '2018-09-28 10:24:25', '2018-09-28 10:24:25'),
+(9, 'Ui', 'Dfghhhj', '', 1, 4, 1, 0, '2018-09-28 10:28:44', '2018-09-28 10:28:44'),
+(10, 'Bgfy', 'Hgfggh', '', 1, 2, 1, 0, '2018-09-28 10:31:19', '2018-09-28 10:31:19');
 
 -- --------------------------------------------------------
 
@@ -10161,7 +10166,9 @@ CREATE TABLE `riskpoint_pic` (
 
 INSERT INTO `riskpoint_pic` (`riskpoint_pic_id`, `riskpoint_pic_name`, `riskpoint_pic_date`, `riskpoint_id`) VALUES
 (1, '001.jpg', '2018-09-11 09:31:24', 1),
-(2, '002.jpg', '2018-09-05 08:24:24', 1);
+(2, '002.jpg', '2018-09-05 08:24:24', 1),
+(3, '1538105480807.jpg', '2018-09-28 10:31:21', 10),
+(4, '1538105480788.jpg', '2018-09-28 10:31:22', 10);
 
 -- --------------------------------------------------------
 
@@ -17887,12 +17894,12 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `riskpoint`
 --
 ALTER TABLE `riskpoint`
-  MODIFY `riskpoint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `riskpoint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `riskpoint_pic`
 --
 ALTER TABLE `riskpoint_pic`
-  MODIFY `riskpoint_pic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `riskpoint_pic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user`
 --
