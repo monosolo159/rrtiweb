@@ -32,4 +32,21 @@ class Riskpointmodel extends CI_Model {
 		$query = $this->db->get()->result_array();
 		return $query;
 	}
+
+	public function insertRiskpoint($input){
+		$this->db->insert('riskpoint', $input);
+		return $this->db->insert_id();
+	}
+
+	public function insertRiskpointPic($input){
+		$this->db->insert('riskpoint_pic', $input);
+	}
+
+	public function getPiority(){
+		$this->db->select('*');
+		$this->db->from('riskpoint_piority');
+		$this->db->order_by('riskpoint_piority_id','asc');
+		$query = $this->db->get()->result_array();
+		return $query;
+	}
 }

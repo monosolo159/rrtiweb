@@ -54,50 +54,48 @@ class Service_riskpoint extends REST_Controller
     // $this->response($user, 200); // 200 being the HTTP response code
   }
 
+  function getPiority_post(){
+    // $input = $this->post();
+    $riskpointPiority = $this->Riskpointmodel->getPiority();
+    $this->response($riskpointPiority, 200); // 200 being the HTTP response code
+  }
 
+  function insertRiskpoint_post(){
+    $input = $this->post();
+    $input['riskpoint_date'] = date("Y-m-d H:i:s");
+    $input['riskpoint_last_update'] = date("Y-m-d H:i:s");
+    $riskpoint = $this->Riskpointmodel->insertRiskpoint($input);
+    $this->response($riskpoint, 200); // 200 being the HTTP response code
+  }
 
+  function uploadImage_post(){
+    $this->load->library('image_lib');
+    $target_path = "assets/img/riskpoint/";
+    $input = $this->post();
+    $input['riskpoint_pic_date'] = date("Y-m-d H:i:s");
+    $input['riskpoint_pic_name'] = basename( $_FILES['file']['name']);
+    $this->Riskpointmodel->insertRiskpointPic($input);
+    $target_path = $target_path .  basename( $_FILES['file']['name']);
+    // unlink($target_path);
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
 
+      $config['image_library'] = 'gd2';
+      $config['source_image'] = $target_path;
+      $config['create_thumb'] = false;
+      $config['maintain_ratio'] = TRUE;
+      $config['width']     = 800;
+      $config['height']   = 800;
+      $config['new_image']   = $target_path;
 
+      $this->image_lib->clear();
+      $this->image_lib->initialize($config);
+      $this->image_lib->resize();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // function uploadImage_post(){
-  //   $this->load->library('image_lib');
-  //   $target_path = "assets/img/profiles/";
-  //   $target_path = $target_path . basename( $_FILES['file']['name']);
-  //   // unlink($target_path);
-  //   if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
-  //
-  //     $config['image_library'] = 'gd2';
-  //     $config['source_image'] = $target_path;
-  //     $config['create_thumb'] = false;
-  //     $config['maintain_ratio'] = TRUE;
-  //     $config['width']     = 400;
-  //     $config['height']   = 400;
-  //     $config['new_image']   = $target_path;
-  //
-  //     $this->image_lib->clear();
-  //     $this->image_lib->initialize($config);
-  //     $this->image_lib->resize();
-  //
-  //     echo "Upload and move success";
-  //   } else {
-  //     echo $target_path;
-  //     echo "There was an error uploading the file, please try again!";
-  //   }
-  // }
+      echo "Upload and move success";
+    } else {
+      echo $target_path;
+      echo "There was an error uploading the file, please try again!";
+    }
+  }
 
 }
