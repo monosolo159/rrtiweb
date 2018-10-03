@@ -32,6 +32,40 @@ class Home extends CI_Controller {
 		$this->load->view('login');
 	}
 
+	public function dashboard()
+	{
+		// print_r('asdasd');
+		$value = array(
+			'result' => array(
+			),
+			'view' => 'dashboard'
+		);
+		$this->loadview($value);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public function c_class(){
 		$query = $this->Classmodel->getClassInsertStudent();
 		$value = array(

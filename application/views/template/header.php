@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['ADMIN_ID'])){
+if(!isset($_SESSION['USER_ID'])){
   redirect('home/login');
 }
 ?>
@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta charset="utf-8" />
-<title>Advisors Admin Dashboard</title>
+<title>r-RTI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta content="" name="description" />
 <meta content="" name="author" />
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a> </li>
       </ul>
       <!-- BEGIN LOGO -->
-      <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>assets/img/logo.png" data-src-retina="<?php echo base_url(); ?>assets/img/logo2x.png" width="106" height="21"/></a>
+      <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/rrtilogo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>assets/img/rrtilogo.png" data-src-retina="<?php echo base_url(); ?>assets/img/rrtilogo2x.png" width="106" height="21"/></a>
       <!-- END LOGO -->
 
     </div>
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- BEGIN CHAT TOGGLER -->
       <div class="pull-right">
         <ul class="nav quick-section ">
-          <?php echo $_SESSION['ADMIN_NAME']; ?>
+          <?php echo $_SESSION['USER_NAME']; ?>
         </ul>
         <ul class="nav quick-section ">
           <a href="<?php echo site_url('Admin/logout'); ?>"><i class="fa fa-power-off"></i></a>

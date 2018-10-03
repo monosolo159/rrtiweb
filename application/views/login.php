@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8" />
-  <title>LOGIN</title>
+  <title>r-RTI LOGIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta content="" name="description" />
   <meta content="" name="author" />
@@ -51,14 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="input-with-icon">
                 <i class=""></i>
 
-                <h2 style="text-align:center">เว็บแอพพลิเคชันอาจารย์ที่ปรึกษา บนระบบปฏิบัติการแอนดรอยด์</h2>
+                <h2 style="text-align:center">respons-Road<br>Traffic Injury</h2>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-10">
-            <label class="form-label">Username</label>
+            <label class="form-label">ชื่อผู้ใช้</label>
             <div class="controls">
               <div class="input-with-icon  right">
                 <i class=""></i>
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="row">
           <div class="form-group col-md-10">
-            <label class="form-label">Password</label>
+            <label class="form-label">รหัสผ่าน</label>
             <span class="help"></span>
             <div class="controls">
               <div class="input-with-icon  right">

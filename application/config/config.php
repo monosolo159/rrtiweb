@@ -24,7 +24,8 @@ date_default_timezone_set('Asia/Bangkok');
 |
 */
 // $config['base_url'] = 'http://rrti.wichetpong.com/';
-$config['base_url'] = 'http://192.168.0.101/rrti/';
+// $config['base_url'] = 'http://192.168.0.101/rrti/';
+$config['base_url'] = 'http://192.168.10.9/rrtiweb/';
 // $config['base_url'] = 'http://172.16.0.166/rrtiweb/';
 
 

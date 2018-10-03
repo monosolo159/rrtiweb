@@ -13,21 +13,22 @@ class Admin extends CI_Controller {
 
 	public function login()
 	{
-		$input['admin_username'] = $this->input->post('txtusername');
-		$input['admin_password'] = md5($this->input->post('txtpassword'));
+		$input['user_username'] = $this->input->post('txtusername');
+		$input['user_password'] = md5($this->input->post('txtpassword'));
 
 		$query = $this->Adminmodel->login($input);
-		// print_r($query);
+		print_r($query);
 		if (empty($query))
 		{
-			$_SESSION['ADMIN_LOGIN'] = 'USERNAME / PASSWORD ไม่ถูกต้อง';
+			$_SESSION['ADMIN_LOGIN'] = 'ชื่อผู้ใช้, รหัสผ่าน หรือสิทธิ์การใช้งานไม่ถูกต้อง';
 			redirect('Home/login');
 		} else {
 			unset($_SESSION['ADMIN_LOGIN']);
-			$_SESSION['ADMIN_NAME'] = $query[0]['admin_name'];
-			$_SESSION['ADMIN_ID'] = $query[0]['admin_id'];
+			$_SESSION['USER_NAME'] = $query[0]['user_fname'].' '.$query[0]['user_lname'];
+			$_SESSION['USER_ID'] = $query[0]['user_id'];
+			$_SESSION['USER_TYPE'] = $query[0]['user_type_id'];
 
-			redirect('Home/teacher');
+			redirect('Home/dashboard');
 		}
 	}
 
