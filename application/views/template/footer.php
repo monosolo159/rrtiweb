@@ -12,7 +12,19 @@
 <!-- BEGIN PAGE LEVEL JS -->
 <script src="<?php echo base_url('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/jquery-block-ui/jqueryblockui.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/pace/pace.min.js" type="text/javascript'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/jquery-slider/jquery.sidr.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/jquery-superbox/js/superbox.js'); ?>" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script>
+		$(function() {
+			// Call SuperBox - that's it!
+			$('.superbox').SuperBox();
+		});
+</script>
+
 <script src="<?php echo base_url('assets/plugins/bootstrap-select2/select2.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/jquery-datatable/js/jquery.dataTables.min.js'); ?>" type="text/javascript" ></script>
 <script src="<?php echo base_url('assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js'); ?>" type="text/javascript" ></script>

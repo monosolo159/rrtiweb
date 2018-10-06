@@ -17,18 +17,19 @@ class Admin extends CI_Controller {
 		$input['user_password'] = md5($this->input->post('txtpassword'));
 
 		$query = $this->Adminmodel->login($input);
-		print_r($query);
+		// print_r($query);
 		if (empty($query))
 		{
-			$_SESSION['ADMIN_LOGIN'] = 'ชื่อผู้ใช้, รหัสผ่าน หรือสิทธิ์การใช้งานไม่ถูกต้อง';
+			$_SESSION['USER_LOGIN'] = 'ชื่อผู้ใช้, รหัสผ่าน หรือสิทธิ์การใช้งานไม่ถูกต้อง';
 			redirect('Home/login');
 		} else {
-			unset($_SESSION['ADMIN_LOGIN']);
+			unset($_SESSION['USER_LOGIN']);
 			$_SESSION['USER_NAME'] = $query[0]['user_fname'].' '.$query[0]['user_lname'];
 			$_SESSION['USER_ID'] = $query[0]['user_id'];
 			$_SESSION['USER_TYPE'] = $query[0]['user_type_id'];
+			$_SESSION['USER_AREA'] = $query[0]['user_area'];
 
-			redirect('Home/dashboard');
+			redirect('Home/riskpoint');
 		}
 	}
 

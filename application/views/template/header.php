@@ -19,6 +19,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link href="<?php echo base_url('assets/plugins/bootstrap-select2/select2.css'); ?>" rel="stylesheet" type="text/css" media="screen"/>
 <link href="<?php echo base_url('assets/plugins/jquery-datatable/css/jquery.dataTables.css'); ?>" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url('assets/plugins/datatables-responsive/css/datatables.responsive.css'); ?>" rel="stylesheet" type="text/css" media="screen"/>
+
+<link href="<?php echo base_url('assets/plugins/pace/pace-theme-flash.css" rel="stylesheet'); ?>" type="text/css" media="screen"/>
+<link href="<?php echo base_url('assets/plugins/jquery-slider/css/jquery.sidr.light.css'); ?>" rel="stylesheet" type="text/css" media="screen"/>
+<link href="<?php echo base_url('assets/plugins/jquery-superbox/css/style.css" rel="stylesheet'); ?>" type="text/css" media="screen"/>
 <!-- END PLUGIN CSS -->
 <!-- BEGIN CORE CSS FRAMEWORK -->
 <link href="<?php echo base_url('assets/plugins/boostrapv3/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css"/>

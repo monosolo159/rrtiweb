@@ -7,10 +7,7 @@ class Adminmodel extends CI_Model {
 		return $this->db
 		->where('user_username',$input['user_username'])
 		->where('user_password',$input['user_password'])
-		->where('user_type_id',1)
-		->or_where('user_type_id',2)
-		->or_where('user_type_id',3)
-		->or_where('user_type_id',4)
+		->where('user_type_id !=',5)
 		->get('user')->result_array();
 	}
 }

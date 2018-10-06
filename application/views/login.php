@@ -33,11 +33,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="control-group  col-md-10">
             <label style="text-align:center;color:red">
               <?php
-                if(isset($_SESSION['ADMIN_ID'])){
+                if(isset($_SESSION['USER_ID'])){
                   redirect('home');
                 }else{
-                  if(isset($_SESSION['ADMIN_LOGIN'])){
-                    echo $_SESSION['ADMIN_LOGIN'];
+                  if(isset($_SESSION['USER_LOGIN'])){
+                    echo $_SESSION['USER_LOGIN'];
                   }
                 }
                ?>
