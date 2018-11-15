@@ -8,7 +8,7 @@
 					<div class="grid-title">
 						<h4><span class="semi-bold">รายการจุดเสี่ยง</span></h4>
 						<div class="tools">
-							<button type="button" class="btn btn-primary" onclick="location.href='<?php echo site_url('Home/user_insert')?>'">เพิ่ม</button>
+							<!-- <button type="button" class="btn btn-primary" onclick="location.href='<?php echo site_url('Home/user_insert')?>'">เพิ่ม</button> -->
 							<!-- <button type="button" class="btn btn-primary" onclick="location.href='<?php echo site_url('home/student_import')?>'">นำเข้าจากไฟล์</button> -->
 						</div>
 					</div>
